@@ -1,4 +1,4 @@
-package org.example.t1academyhome05.entity;
+package org.example.t1academyhome.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

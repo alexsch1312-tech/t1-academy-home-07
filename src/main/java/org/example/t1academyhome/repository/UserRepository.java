@@ -1,6 +1,6 @@
-package org.example.t1academyhome05.repository;
+package org.example.t1academyhome.repository;
 
-import org.example.t1academyhome05.entity.User;
+import org.example.t1academyhome.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,8 +1,8 @@
-package org.example.t1academyhome05.service;
+package org.example.t1academyhome.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.t1academyhome05.entity.User;
+import org.example.t1academyhome.entity.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class UserServiceCommandRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("!!!!Запуск сервиса!!!!");
-
+/*
         System.out.println("\n--- Удаление всех пользователей ---");
         userService.deleteALL();
 
@@ -46,6 +46,8 @@ public class UserServiceCommandRunner implements CommandLineRunner {
         System.out.println("\n--- Итоговый список пользователей ---");
         userService.getAllUsers().forEach(System.out::println);
 
+
+ */
         log.info("!!!!Сервис завершен!!!!");
     }
 }
