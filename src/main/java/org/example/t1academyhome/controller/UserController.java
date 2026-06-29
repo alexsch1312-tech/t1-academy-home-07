@@ -1,6 +1,5 @@
 package org.example.t1academyhome.controller;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.t1academyhome.dto.UserRequestDto;
 import org.example.t1academyhome.dto.UserResponseDto;
@@ -19,7 +18,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserResponseDto> createUser(@Valid @RequestBody UserRequestDto dto) {
+    public ResponseEntity<UserResponseDto> createUser(@RequestBody UserRequestDto dto) {
         return new ResponseEntity<>(userService.createUser(dto), HttpStatus.CREATED);
     }
 
@@ -33,8 +32,13 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
+    @GetMapping("/userName/{userName}")
+    public ResponseEntity<UserResponseDto> getUserByUserName(@PathVariable String userName) {
+        return ResponseEntity.ok(userService.getUserByUsername(userName));
+    }
+
     @PutMapping("/{id}")
-    public ResponseEntity<UserResponseDto> updateUser(@PathVariable Long id, @Valid @RequestBody UserRequestDto dto) {
+    public ResponseEntity<UserResponseDto> updateUser(@PathVariable Long id, @RequestBody UserRequestDto dto) {
         return ResponseEntity.ok(userService.updateUser(id, dto));
     }
 

@@ -22,7 +22,6 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final UserRepository userRepository;
 
-    // Create
     @Transactional
     public ProductResponseDto createProduct(ProductRequestDto dto) {
         User user = userRepository.findById(dto.getUserId())
@@ -33,7 +32,6 @@ public class ProductService {
         return new ProductResponseDto(savedProduct);
     }
 
-    // Read (All or By UserId)
     public List<ProductResponseDto> getProducts(Long userId) {
         if (userId != null) {
             return productRepository.findByUserId(userId).stream()
@@ -45,14 +43,12 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-    // Read (One)
     public ProductResponseDto getProductById(Long productId) {
         return productRepository.findById(productId)
                 .map(ProductResponseDto::new)
                 .orElseThrow(() -> new ResourceNotFoundException("Продукт с id " + productId + " не найден"));
     }
 
-    // Update
     @Transactional
     public ProductResponseDto updateProduct(Long productId, ProductRequestDto dto) {
         Product product = productRepository.findById(productId)
@@ -69,7 +65,6 @@ public class ProductService {
         return new ProductResponseDto(product);
     }
 
-    // Delete
     @Transactional
     public void deleteProduct(Long productId) {
         if (!productRepository.existsById(productId)) {

@@ -1,0 +1,63 @@
+###
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "id": 6,
+  "username": "alex sch"
+}
+
+###
+GET http://localhost:8080/api/v1/users
+
+
+###
+GET http://localhost:8080/api/v1/users/5
+
+###
+GET http://localhost:8080/api/v1/users/userName/kurt_cobain
+
+###
+PUT http://localhost:8080/api/v1/users/2
+Content-Type: application/json
+
+{
+  "username": "maria_ivanova2"
+}
+
+###
+DELETE http://localhost:8080/api/v1/users/6
+
+###
+POST http://localhost:8080/api/v1/products
+Content-Type: application/json
+
+{
+  "accountNumber": "ACC-!!!!!!",
+  "balance": 9999.00,
+  "productType": "ACCOUNT",
+  "userId": 1
+}
+
+###
+GET http://localhost:8080/api/v1/products
+
+###
+GET http://localhost:8080/api/v1/products?userId=1
+
+###
+GET http://localhost:8080/api/v1/products/3
+
+###
+PUT http://localhost:8080/api/v1/products/3
+Content-Type: application/json
+
+{
+  "accountNumber": "ACC-40802002!!!!",
+  "balance": 0.00,
+  "productType": "ACCOUNT",
+  "userId": 1
+}
+
+###
+DELETE http://localhost:8080/api/v1/products/12

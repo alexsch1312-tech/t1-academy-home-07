@@ -1,6 +1,5 @@
 package org.example.t1academyhome.controller;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.t1academyhome.dto.ProductRequestDto;
 import org.example.t1academyhome.dto.ProductResponseDto;
@@ -19,13 +18,12 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping
-    public ResponseEntity<ProductResponseDto> createProduct(@Valid @RequestBody ProductRequestDto dto) {
+    public ResponseEntity<ProductResponseDto> createProduct(@RequestBody ProductRequestDto dto) {
         return new ResponseEntity<>(productService.createProduct(dto), HttpStatus.CREATED);
     }
 
-    // Поддерживает оба сценария:
-    // 1. Все продукты: GET /api/v1/products
-    // 2. Продукты юзера: GET /api/v1/products?userId=1
+    // GET /api/v1/products
+    // GET /api/v1/products?userId=1
     @GetMapping
     public ResponseEntity<List<ProductResponseDto>> getProducts(@RequestParam(required = false) Long userId) {
         return ResponseEntity.ok(productService.getProducts(userId));
@@ -39,7 +37,7 @@ public class ProductController {
     @PutMapping("/{productId}")
     public ResponseEntity<ProductResponseDto> updateProduct(
             @PathVariable Long productId,
-            @Valid @RequestBody ProductRequestDto dto) {
+            @RequestBody ProductRequestDto dto) {
         return ResponseEntity.ok(productService.updateProduct(productId, dto));
     }
 
