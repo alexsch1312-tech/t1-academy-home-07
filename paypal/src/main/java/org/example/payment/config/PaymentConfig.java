@@ -25,6 +25,7 @@ public class PaymentConfig {
                 .baseUri(props.url())
                 .connectTimeout(props.connectTimeout())
                 .readTimeout(props.readTimeout())
+                .errorHandler(new RestTemplateErrorHandler())
                 .build();
     }
 }

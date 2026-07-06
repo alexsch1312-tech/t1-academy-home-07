@@ -1,8 +1,5 @@
 
 ###
-GET http://localhost:8181/api/v1/payments/helthcheck
-
-###
 GET http://localhost:8181/api/v1/payments/user-products/1
 
 

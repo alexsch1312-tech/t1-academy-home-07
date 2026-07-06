@@ -16,20 +16,12 @@ public class PaymentController {
 
     private final PaymentService paymentService;
 
-    @GetMapping("/helthcheck")
-    @ResponseStatus(HttpStatus.OK)
-    public String getClientProducts() {
-        return "Hello";
-    }
-
     @GetMapping("/user-products/{userId}")
-    @ResponseStatus(HttpStatus.OK)
     public List<ProductResponseDto> getClientProducts(@PathVariable Long userId) {
         return paymentService.getUserProducts(userId);
     }
 
     @PostMapping("/execute")
-    @ResponseStatus(HttpStatus.OK)
     public String execute(@RequestBody PaymentRequestDto requestDto) {
         return paymentService.executePayment(requestDto);
     }
