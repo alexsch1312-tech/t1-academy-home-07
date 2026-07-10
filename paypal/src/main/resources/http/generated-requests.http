@@ -1,0 +1,14 @@
+
+###
+GET http://localhost:8181/api/v1/payments/user-products/1
+
+
+###
+POST http://localhost:8181/api/v1/payments/execute
+Content-Type: application/json
+
+{
+  "productId": 11,
+  "amount": 100.00,
+  "description": "Тест"
+}
